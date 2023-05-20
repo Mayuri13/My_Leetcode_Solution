@@ -7,26 +7,48 @@ using namespace std;
 class Solution
 {
     public:
-    //Tabulation Solution
+    //Space Optimization
     int knapSack(int w, int wt[], int val[], int n) 
     { 
-       vector<vector<int>>dp(n,vector<int>(w+1,0));
+       vector<int>prev(w+1,0), curr(w+1,0);
        for(int j=0; j<=w; j++){
-           if(wt[0]<=j) dp[0][j] = val[0];
+           if(wt[0]<=j) prev[j] = val[0];
        }
        
        for(int i=1; i<n; i++){
            for(int j=0; j<=w; j++){
                int p=0;
                if(wt[i]<=j)
-                    p = val[i] + dp[i-1][j-wt[i]];
-                int np = dp[i-1][j];
-                dp[i][j]=max(np,p);
+                    p = val[i] + prev[j-wt[i]];
+                int np = prev[j];
+                curr[j]=max(np,p);
            }
+           prev = curr;
        }
        
-       return dp[n-1][w];
+       return prev[w];
     }
+    
+    //Tabulation Solution
+    // int knapSack(int w, int wt[], int val[], int n) 
+    // { 
+    //   vector<vector<int>>dp(n,vector<int>(w+1,0));
+    //   for(int j=0; j<=w; j++){
+    //       if(wt[0]<=j) dp[0][j] = val[0];
+    //   }
+       
+    //   for(int i=1; i<n; i++){
+    //       for(int j=0; j<=w; j++){
+    //           int p=0;
+    //           if(wt[i]<=j)
+    //                 p = val[i] + dp[i-1][j-wt[i]];
+    //             int np = dp[i-1][j];
+    //             dp[i][j]=max(np,p);
+    //       }
+    //   }
+       
+    //   return dp[n-1][w];
+    // }
     
     // int find(int ind, int w, int wt[], vector<vector<int>>&dp, int val[]){
     //     if(ind==0){
