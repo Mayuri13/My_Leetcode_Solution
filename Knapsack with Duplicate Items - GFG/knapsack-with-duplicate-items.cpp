@@ -9,24 +9,44 @@ using namespace std;
 
 class Solution{
 public:
-    int knapSack(int n, int w, int val[], int wt[])
-    {
-        vector<int>curr(w+1,0);
-       for(int j=wt[0]; j<=w; j++){
-           curr[j] = ((int)j/wt[0])*val[0];
-       }
+    // int knapSack(int n, int w, int val[], int wt[])
+    // {
+    //     vector<int>curr(w+1,0);
+    //   for(int j=wt[0]; j<=w; j++){
+    //       curr[j] = ((int)j/wt[0])*val[0];
+    //   }
        
-       for(int i=1; i<n; i++){
-           for(int j=0; j<=w; j++){
-               int p=0;
-               if(wt[i]<=j)
-                    p = val[i] + curr[j-wt[i]];
-                int np = curr[j];
-                curr[j]=max(np,p);
-           }
-       }
+    //   for(int i=1; i<n; i++){
+    //       for(int j=0; j<=w; j++){
+    //           int p=0;
+    //           if(wt[i]<=j)
+    //                 p = val[i] + curr[j-wt[i]];
+    //             int np = curr[j];
+    //             curr[j]=max(np,p);
+    //       }
+    //   }
        
-       return curr[w];
+    //   return curr[w];
+    // }
+    //Tabulation Solution
+    int knapSack(int n, int w, int val[], int wt[]) 
+    { 
+      vector<vector<int>>dp(n,vector<int>(w+1,0));
+      for(int j=wt[0]; j<=w; j++){
+          dp[0][j] =((int)j/wt[0])*val[0];
+      }
+       
+      for(int i=1; i<n; i++){
+          for(int j=0; j<=w; j++){
+              int p=0;
+              if(wt[i]<=j)
+                    p = val[i] + dp[i][j-wt[i]];
+                int np = dp[i-1][j];
+                dp[i][j]=max(np,p);
+          }
+      }
+       
+      return dp[n-1][w];
     }
 };
 
