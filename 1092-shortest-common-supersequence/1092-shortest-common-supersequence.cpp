@@ -1,61 +1,55 @@
 class Solution {
 public:
-    string shortestCommonSupersequence(string s1, string s2) {
-      int n = s1.size();
-      int m = s2.size();
-
-      vector < vector < int >> dp(n + 1, vector < int > (m + 1, 0));
-      for (int i = 0; i <= n; i++) {
-        dp[i][0] = 0;
-      }
-      for (int i = 0; i <= m; i++) {
-        dp[0][i] = 0;
-      }
-
-      for (int ind1 = 1; ind1 <= n; ind1++) {
-        for (int ind2 = 1; ind2 <= m; ind2++) {
-          if (s1[ind1 - 1] == s2[ind2 - 1])
-            dp[ind1][ind2] = 1 + dp[ind1 - 1][ind2 - 1];
-          else
-            dp[ind1][ind2] = 0 + max(dp[ind1 - 1][ind2], dp[ind1][ind2 - 1]);
+    string shortestCommonSupersequence(string t1, string t2) {
+        if(t1==t2)
+            return t1;
+        int n = t1.size(), m = t2.size();
+        string ans="";
+        vector<vector<int>>dp(n+1,vector<int>(m+1,-1));
+        for(int i=0; i<=m; i++){
+            dp[0][i]=0;
         }
-      }
-
-      int len = dp[n][m];
-      int i = n;
-      int j = m;
-
-      // int index = len - 1;
-      string ans = "";
-
-      while (i > 0 && j > 0) {
-        if (s1[i - 1] == s2[j - 1]) {
-          ans += s1[i-1];
-          // index--;
-          i--;
-          j--;
-        } else if (dp[i - 1][j] > dp[i][j - 1]) {
-            ans += s1[i-1];
+        for(int i=0; i<=n; i++){
+            dp[i][0]=0;
+        }
+        for(int i=1; i<=n; i++){
+            for(int j=1; j<=m; j++){
+                if(t1[i-1]==t2[j-1])
+                    dp[i][j] = 1+dp[i-1][j-1];
+                else
+                    dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
+            }
+        }
+        //for getting the LCS we must traverse from i=n and j=m
+        int i = n, j=m;
+        while (i>0 && j>0)
+        {
+            if(t1[i-1]==t2[j-1]){
+                ans+=t1[i-1];
+                i=i-1;
+                j=j-1;
+            }
+            else if(dp[i-1][j]>dp[i][j-1]){
+                    ans+=t1[i-1];
+                    i = i-1;
+            }
+            else{
+                ans+=t2[j-1];
+                j=j-1;
+            }
+        }
+        // cout<<ans<<" ";
+        while(i>0){
+            ans+=t1[i-1];
             i--;
-        } else {
-            ans += s2[j-1];
+        }
+        while(j>0){
+            ans+=t2[j-1];
             j--;
         }
-      }
-
-      //Adding Remaing Characters - Only one of the below two while loops will run 
-
-      while(i>0){
-          ans += s1[i-1];
-          i--;
-      }
-      while(j>0){
-          ans += s2[j-1];
-          j--;
-      }
-
-      reverse(ans.begin(),ans.end());
-
-      return ans;
+        // int l = ans.size(), k=0;
+        //Reversing the string
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
 };
