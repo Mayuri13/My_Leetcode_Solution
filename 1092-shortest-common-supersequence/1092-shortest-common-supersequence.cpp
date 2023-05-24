@@ -22,7 +22,7 @@ public:
         }
         //for getting the LCS we must traverse from i=n and j=m
         int i = n, j=m;
-        while (i>0 && j>0)
+        while (i>=1 && j>=1)
         {
             if(t1[i-1]==t2[j-1]){
                 ans+=t1[i-1];
