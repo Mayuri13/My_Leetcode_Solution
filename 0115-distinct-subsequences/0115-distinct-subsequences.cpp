@@ -1,26 +1,48 @@
 class Solution {
 public:
-    //Space Optimization
+    
     int prime = 1e9+7;
     int numDistinct(string s, string t) {
         int n = s.size(), m = t.size();
-        vector<int>prev(m+1,0);
+        vector<int>prev(m+1,0), curr(m+1,0);
         prev[0] = 1;
         for(int i=1; i<=n; i++){
-            for(int j=m; j>=0; j--){
+            for(int j=0; j<=m; j++){
                 if(j==0)
-                    prev[j] = 1;
+                    curr[j] = 1;
                 else{
                     if(s[i-1]==t[j-1])
-                        prev[j] = (prev[j-1] + prev[j])%prime;
+                        curr[j] = (prev[j-1] + prev[j])%prime;
                     
                     else
-                        prev[j] = prev[j];
+                        curr[j] = prev[j];
                 }
             }
+            prev = curr;
         }
         return prev[m];
     }
+    //Space Optimization
+//     int prime = 1e9+7;
+//     int numDistinct(string s, string t) {
+//         int n = s.size(), m = t.size();
+//         vector<int>prev(m+1,0);
+//         prev[0] = 1;
+//         for(int i=1; i<=n; i++){
+//             for(int j=m; j>=0; j--){
+//                 if(j==0)
+//                     prev[j] = 1;
+//                 else{
+//                     if(s[i-1]==t[j-1])
+//                         prev[j] = (prev[j-1] + prev[j])%prime;
+                    
+//                     else
+//                         prev[j] = prev[j];
+//                 }
+//             }
+//         }
+//         return prev[m];
+//     }
     
     //Tabulation Solution
 //     int prime = 1e9+7;
