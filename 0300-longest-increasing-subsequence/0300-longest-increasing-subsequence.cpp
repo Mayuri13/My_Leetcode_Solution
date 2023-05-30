@@ -1,30 +1,45 @@
 class Solution {
 public:
-    //Tabulation Solution
-    int lengthOfLIS(vector<int>& arr) {
-        int n = arr.size();
-        vector<int>prev(n+1,0), curr(n+1,0);
-    
-        for(int ind = n-1; ind>=0; ind --){
-            for (int prev_index = ind-1; prev_index >=-1; prev_index --){
-
-                int notTake = 0 + prev[prev_index +1];
-
-                int take = 0;
-
-                if(prev_index == -1 || arr[ind] > arr[prev_index]){
-
-                    take = 1 + prev[ind+1];
-                }
-
-                curr[prev_index+1] = max(notTake,take);
-
+    //Tracing the LIS(In 1D DP)
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size(), mx = 1;
+        vector<int>dp(n,1);
+        for(int i=1; i<n; i++){
+            for(int j=0; j<i; j++){
+                if(nums[j]<nums[i])
+                    dp[i] = max(dp[i], 1+dp[j]);
+                mx = max(mx,dp[i]);
             }
-            prev = curr;
         }
-    
-    return prev[0];
+        return mx;
     }
+    
+    
+    //Space Optimization Solution
+//     int lengthOfLIS(vector<int>& arr) {
+//         int n = arr.size();
+//         vector<int>prev(n+1,0), curr(n+1,0);
+    
+//         for(int ind = n-1; ind>=0; ind --){
+//             for (int prev_index = ind-1; prev_index >=-1; prev_index --){
+
+//                 int notTake = 0 + prev[prev_index +1];
+
+//                 int take = 0;
+
+//                 if(prev_index == -1 || arr[ind] > arr[prev_index]){
+
+//                     take = 1 + prev[ind+1];
+//                 }
+
+//                 curr[prev_index+1] = max(notTake,take);
+
+//             }
+//             prev = curr;
+//         }
+    
+//     return prev[0];
+//     }
     
 //     //Tabulation Solution
 //     int lengthOfLIS(vector<int>& arr) {
