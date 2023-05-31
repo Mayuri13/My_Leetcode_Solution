@@ -1,18 +1,36 @@
 class Solution {
 public:
-    //Tracing the LIS(In 1D DP)
+    //Using binary search to find the LIS length
     int lengthOfLIS(vector<int>& nums) {
-        int n = nums.size(), mx = 1;
-        vector<int>dp(n,1);
-        for(int i=1; i<n; i++){
-            for(int j=0; j<i; j++){
-                if(nums[j]<nums[i])
-                    dp[i] = max(dp[i], 1+dp[j]);
-                mx = max(mx,dp[i]);
+        vector<int>temp;
+        temp.push_back(nums[0]);
+        int len=1;
+        for(int i=1; i<nums.size(); i++){
+            if(nums[i]>temp.back()){
+                temp.push_back(nums[i]);
+                len++;
+            }
+            else{
+                int ind = lower_bound(temp.begin(),temp.end(),nums[i]) - temp.begin();
+                temp[ind] = nums[i];
             }
         }
-        return mx;
+        return len;
     }
+    
+    //Tracing the LIS(In 1D DP)
+    // int lengthOfLIS(vector<int>& nums) {
+    //     int n = nums.size(), mx = 1;
+    //     vector<int>dp(n,1);
+    //     for(int i=1; i<n; i++){
+    //         for(int j=0; j<i; j++){
+    //             if(nums[j]<nums[i])
+    //                 dp[i] = max(dp[i], 1+dp[j]);
+    //             mx = max(mx,dp[i]);
+    //         }
+    //     }
+    //     return mx;
+    // }
     
     
     //Space Optimization Solution
