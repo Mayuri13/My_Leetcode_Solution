@@ -9,6 +9,8 @@ using namespace std;
 
 class Solution{
 public:
+    
+// Tabulation Solution
     int matrixMultiplication(int N, int arr[])
     {
         vector<vector<int>>dp(N,vector<int>(N,0));
@@ -26,6 +28,8 @@ public:
         }
         return dp[1][N-1];
     }
+    
+    // Memoization solution
     // int find(int i, int j, int arr[], vector<vector<int>>&dp){
     //     if(i==j)
     //         return 0;
