@@ -12,9 +12,9 @@ public:
          sort(cuts.begin(),cuts.end());
          vector<vector<int>> dp(c+2,vector<int>(c+2,0));
          for(int i=c; i>=1; i--){
-             for(int j=1; j<=c; j++){
-                 if(i>j)
-                     continue;
+             for(int j=i; j<=c; j++){
+                 // if(i>j)
+                 //     continue;
                  int minm = INT_MAX;
     
                     for(int ind=i; ind<=j; ind++){
