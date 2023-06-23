@@ -1,45 +1,29 @@
 class Solution {
 public:
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-
-        queue<pair<pair<int,int>,int>>q;
-        q.push({{0,0},1});
-        
-        if(grid[0][0]==1)return -1;
-        
-        if(grid[0][0]==0 && grid.size()==1 && grid[0].size()==1)return 1;
-        
-        vector<vector<bool>>visited(grid.size(),vector<bool>(grid.size(),false));
-        visited[0][0]=true;
-        while(!q.empty())
-        {
-            pair<int,int>p = q.front().first; 
-            int x = p.first; 
-            int y= p.second; 
-            int lengthOfPath = q.front().second; 
+        int n = grid.size();
+        if(grid[0][0]!=0 || grid[n-1][n-1]!=0)
+            return -1;
+        vector<vector<int>>dist(n,vector<int>(n,1e9));
+        dist[0][0]=1;
+        queue<pair<int,int>>q;
+        q.push({0,0});
+        while(!q.empty()){
+            int r = q.front().first;
+            int c = q.front().second;
             q.pop();
-            
-            vector<pair<int,int>>neighbours = {{0,1}, {0,-1}, {1,0}, {-1,0},
-                                               {1,1}, {-1,-1}, {1,-1}, {-1,1}};
-            
-            for(pair<int,int>neighbour: neighbours)
-            {
-                int newx = neighbour.first + x;
-                int newy = neighbour.second+ y;
-                
-         if(newx>=0 && newy>=0 && newx<grid.size() && newy<grid[0].size() && grid[newx][newy]==0 && !visited[newx][newy]){
-
-                    q.push({{newx,newy},lengthOfPath+1});
-                    visited[newx][newy] = true;
-                    
-                    if(newx==grid.size()-1 && newy==grid[0].size()-1)
-                     return lengthOfPath+1;
-           
-                }      
+            for(int i=-1; i<=1; i++){
+                for(int j=-1; j<=1; j++){
+                    int nx = r+i, ny = c+j;
+                    if(nx>=0 && nx<n && ny>=0 && ny<n && grid[nx][ny]==0 && 1+dist[r][c]<dist[nx][ny]){
+                        dist[nx][ny]=1+dist[r][c];
+                        q.push({nx,ny});
+                    }
+                }
             }
         }
-        
-        return -1;
-        
+        if(dist[n-1][n-1]==1e9)
+            return -1;
+        return dist[n-1][n-1];
     }
 };
