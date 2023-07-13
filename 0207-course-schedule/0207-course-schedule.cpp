@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //Using detecting a cycle alsorithm
     bool dfs(int src, vector<int>&vis, vector<int>&pathVis, vector<vector<int>>& adj){
         vis[src]=1;
         pathVis[src] = 1;
