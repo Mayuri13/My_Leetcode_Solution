@@ -1,45 +1,63 @@
 class Solution {
 public:
-    int largestRectangleArea(vector < int > & histo) {
-      stack < int > st;
-      int maxA = 0;
-      int n = histo.size();
-      for (int i = 0; i <= n; i++) {
-        while (!st.empty() && (i == n || histo[st.top()] >= histo[i])) {
-          int height = histo[st.top()];
-          st.pop();
-          int width;
-          if (st.empty())
-            width = i;
-          else
-            width = i - st.top() - 1;
-          maxA = max(maxA, width * height);
-        }
-        st.push(i);
-      }
-      return maxA;
-    }
-    int maximalRectangle(vector<vector<char>>& matrix) {
-        int ans = 0;
-        vector<int>temp;
-        for(int j=0; j<matrix[0].size(); j++){
-            if(matrix[0][j]=='1')
-                temp.push_back(1);
-            else
-                temp.push_back(0);
-        }
-        ans = max(ans,largestRectangleArea(temp));
-        
-        for(int i=1; i<matrix.size(); i++){
-            for(int j=0; j<matrix[0].size(); j++){
-               if(matrix[i][j]=='1')
-                   temp[j]+=1;
-                else
-                    temp[j] = 0;
-                
+    int area(vector<int>&hist){
+        int n = hist.size();
+        //LS (storing left small indices for each element of hist)
+        stack<int>st;
+        vector<int>LS(n);
+        for(int i=0; i<n; i++){
+            while(!st.empty() && hist[st.top()]>=hist[i]){
+                st.pop();
             }
-            ans = max(ans,largestRectangleArea(temp));
+                
+            if(st.empty())
+                LS[i] = 0;
+            else
+                LS[i] = st.top()+1;
+            st.push(i);
         }
-        return ans;
+        while(!st.empty()){
+            st.pop();   
+        }
+        //RS (storing right small indices for each element of hist)
+        vector<int>RS(n);
+        for(int i=n-1; i>=0; i--){
+            while(!st.empty() && hist[st.top()]>=hist[i]){
+                st.pop();
+            }
+                
+            if(st.empty())
+                RS[i] = n-1;
+            else
+                RS[i] = st.top()-1;
+            st.push(i);
+        }
+        int mxArea = 0;
+        for(int i=0; i<n; i++){
+            mxArea = max(mxArea, (RS[i]-LS[i]+1)*hist[i]);
+        }
+        return mxArea;
+    }
+
+    int maximalRectangle(vector<vector<char>>& mat) {
+        vector<int>hist;
+        for(int j=0; j<mat[0].size(); j++){
+            if(mat[0][j]=='1')
+                hist.push_back(1);
+            else
+                hist.push_back(0);
+        }
+        int mx = INT_MIN;
+        mx = max(mx,area(hist));
+        for(int i=1; i<mat.size(); i++){
+            for(int j=0; j<mat[0].size(); j++){
+                if(mat[i][j]=='1')
+                    hist[j]++;
+                else
+                    hist[j]=0;
+            }
+            mx = max(mx,area(hist));
+        }
+        return mx;
     }
 };
