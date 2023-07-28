@@ -19,30 +19,19 @@ struct Node {
 //Function to find the lowest common ancestor in a BST.
 class Solution{
     public:
-        bool find(Node *root, int n, vector<Node*>&path){
-            if(root==NULL)
-                return false;
-            path.push_back(root);
-            if(root->data==n){
-                return true;
-            }
-            if(find(root->left,n,path) || find(root->right,n,path))
-                return true;
-            path.pop_back();
-            return false;
-        }
         Node* LCA(Node *root, int n1, int n2)
         {
-            bool res=false;
-            vector<Node*>path1;
-            vector<Node*>path2;
-            res = find(root,n1,path1);
-            res = find(root,n2,path2);
-            int i=0, n = min(path1.size(),path2.size());
-            while(i<n && path1[i]==path2[i]){
-                i++;
+            Node* curr = root;
+            while(1){
+                if(curr->data<n1 && curr->data<n2){
+                    curr = curr->right;
+                }
+                else if(curr->data>n1 && curr->data>n2)
+                    curr = curr->left;
+                else
+                    break;
             }
-            return path1[i-1];
+            return curr;
         }
 
 };
