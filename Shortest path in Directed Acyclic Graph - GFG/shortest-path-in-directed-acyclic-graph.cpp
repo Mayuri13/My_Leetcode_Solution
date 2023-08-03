@@ -8,49 +8,32 @@ using namespace std;
 // User function Template for C++
 class Solution {
   public:
-    void dfs(int src, stack<int>&st, vector<vector<pair<int,int>>>&adj, vector<int>&vis){
-        vis[src] = 1;
-        for(auto it:adj[src]){
-            if(!vis[it.first])
-               dfs(it.first,st,adj,vis); 
-        }
-        st.push(src);
-    }
+  //Implementing dijkstra's algorithm
      vector<int> shortestPath(int N,int M, vector<vector<int>>& edges){
-        // step1:
-        // performing topological sort using dfs and storing in stack
         vector<vector<pair<int,int>>>adj(N);
         for(int i=0; i<edges.size(); i++){
             adj[edges[i][0]].push_back({edges[i][1],edges[i][2]});
         }
-        stack<int>st;
-        vector<int>vis(N,0); 
-        for(int i=0; i<N; i++){
-            if(!vis[i]){
-                dfs(i,st,adj,vis);
-            }
-        }
-        
-        //step2:
-        //one one pop all elements out of stack and mark their distance in the dis 
-        vector<int>dis(N,INT_MAX);
-        dis[0] = 0;
-        while(!st.empty()){
-            int node = st.top();
-            st.pop();
-            if(dis[node]==INT_MAX){
-                continue;
-            }
-            int x = dis[node];
+        vector<int>dist(N,INT_MAX);
+        dist[0] = 0;
+        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>>pq;
+        pq.push({0,0});
+        while(!pq.empty()){
+            int x = pq.top().second, node = pq.top().first;
+            pq.pop();
             for(auto it:adj[node]){
-                dis[it.first] = min(dis[it.first],x+it.second);
+                int edjW = it.second;
+                if(dist[it.first] > x+edjW){
+                    dist[it.first] = x+edjW;
+                    pq.push({it.first,dist[it.first]});
+                }
             }
         }
         for(int i=0; i<N; i++){
-            if(dis[i]==INT_MAX)
-                dis[i]=-1;
+            if(dist[i]==INT_MAX)
+                dist[i] = -1;       
         }
-        return dis;
+        return dist;
     }
 };
 
