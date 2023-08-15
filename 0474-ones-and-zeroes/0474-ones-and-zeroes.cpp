@@ -1,9 +1,9 @@
 class Solution {
 public:
-    //Tabulation Solution
+    //Space Optimization
     int findMaxForm(vector<string>& strs, int m, int n) {
         int sz = strs.size();
-        vector<vector<vector<int>>>dp(sz+1,vector<vector<int>>(m+1,vector<int>(n+1,0)));
+        vector<vector<int>>curr(m+1,vector<int>(n+1,0)), prev(m+1,vector<int>(n+1,0));
         for(int i=sz-1; i>=0; i--){
             for(int j=0; j<=m; j++){
                 for(int k=0; k<=n; k++){
@@ -14,16 +14,42 @@ public:
                     }
                     int pick = 0;
                     if(zero <=j && one<=k){
-                        pick = 1 + dp[i+1][j-zero][k-one];
+                        pick = 1 + prev[j-zero][k-one];
                     }
-                    int notP = dp[i+1][j][k];
-                    dp[i][j][k] = max(pick,notP);
+                    int notP = prev[j][k];
+                    curr[j][k] = max(pick,notP);
                 }
             }
+            prev = curr;
         }
         
-        return dp[0][m][n];
+        return prev[m][n];
     }
+    
+    //Tabulation Solution
+//     int findMaxForm(vector<string>& strs, int m, int n) {
+//         int sz = strs.size();
+//         vector<vector<vector<int>>>dp(sz+1,vector<vector<int>>(m+1,vector<int>(n+1,0)));
+//         for(int i=sz-1; i>=0; i--){
+//             for(int j=0; j<=m; j++){
+//                 for(int k=0; k<=n; k++){
+//                     int zero = 0, one = 0;
+//                     for(int x=0; x<strs[i].size(); x++){
+//                         if(strs[i][x]=='0') zero++;
+//                         else one++;
+//                     }
+//                     int pick = 0;
+//                     if(zero <=j && one<=k){
+//                         pick = 1 + dp[i+1][j-zero][k-one];
+//                     }
+//                     int notP = dp[i+1][j][k];
+//                     dp[i][j][k] = max(pick,notP);
+//                 }
+//             }
+//         }
+        
+//         return dp[0][m][n];
+//     }
     
     //Memoization Solution
     // int find(int i, vector<string>& strs, vector<vector<vector<int>>>&dp, int m, int n){
