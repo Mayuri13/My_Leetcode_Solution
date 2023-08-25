@@ -1,10 +1,7 @@
 class Solution {
 public:
+    //Recursive solution
 //     bool find(int i, int j, int k, string s1, string s2, string s3){
-//         // if(k==s3.size()){
-//         //     return true;
-//         // }
-//         // if(i==s1.size() && k<) return true;
 //         if(i == s1.size() && k < s3.size()) return s2.substr(j)==s3.substr(k);
 //         if(j == s2.size() && k < s3.size()) return s1.substr(i)==s3.substr(k);
         
@@ -17,6 +14,7 @@ public:
 //         return false;
 //     }
     
+    //Tabulation Solution
     bool isInterleave(string s1, string s2, string s3) {
         int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
         if(n1==0)
