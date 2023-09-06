@@ -6,26 +6,25 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in a directed graph.
-    bool dfs(int src, vector<int> adj[], vector<int>&vis, vector<int>&pathVis){
-        vis[src]=1;
-        pathVis[src]=1;
+    //Use toposort for dfs detection
+    bool dfs(int src, vector<int> adj[], vector<int>&vis, vector<int>&pathvis){
+        vis[src] = 1;
+        pathvis[src] = 1;
         for(auto it:adj[src]){
-            if(pathVis[it]==1){
-                return true;
-            }
-            else if(!vis[it]){
-                if(dfs(it,adj,vis,pathVis)==true)
+            if(pathvis[it]) return true;
+            if(!vis[it])
+                if(dfs(it,adj,vis,pathvis))
                     return true;
-            }
         }
-        pathVis[src]=0;
+        pathvis[src] = 0;
         return false;
     }
     bool isCyclic(int V, vector<int> adj[]) {
-        vector<int>vis(V,0), pathVis(V,0);
+        vector<int>vis(V,0);
+        vector<int>pathvis(V,0);
         for(int i=0; i<V; i++){
             if(!vis[i]){
-                if(dfs(i,adj,vis,pathVis)==true)
+                if(dfs(i,adj,vis,pathvis))
                     return true;
             }
         }
