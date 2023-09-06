@@ -5,25 +5,32 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-  //DFS Traversal
-    bool find(int src,vector<int> adj[],  vector<int>&vis, int parent){
+    // Function to detect cycle in an undirected graph.
+    bool bfs(int src, int par, vector<int> adj[], vector<int>&vis){
+        queue<pair<int,int>>q;
+        q.push({src,par});
         vis[src] = 1;
-        for(auto it:adj[src]){
-            if(!vis[it]){
-                if(find(it,adj,vis,src)==true)
-                    return true;
+        while(!q.empty()){
+            int node = q.front().first;
+            int prev = q.front().second;
+            q.pop();
+            for(auto it:adj[node]){
+                if(!vis[it]){
+                    q.push({it,node});
+                    vis[it] = 1;
+                }
+                else if(it != prev) return true;
             }
-            else if(it!=parent)
-                return true;
         }
         return false;
     }
+    
     bool isCycle(int V, vector<int> adj[]) {
         vector<int>vis(V,0);
+        
         for(int i=0; i<V; i++){
             if(!vis[i]){
-                if(find(i, adj, vis, -1)==true)
-                    return true;
+                if(bfs(i,-1,adj,vis)) return true;
             }
         }
         return false;
