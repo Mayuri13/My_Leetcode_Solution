@@ -10,54 +10,25 @@
  */
 class Solution {
 public:
-    ListNode* reverseBetween(ListNode* head, int l, int r) {
-        if(l==r) return head;
-        int i = 1;
-        ListNode* curr = head, *lprev;
-        while(curr!=NULL){
-            //when left is 1st position
-            if(l==1){
-                ListNode* prev = NULL;
-                ListNode* nex;
-                
-                while(i<=r){
-                    nex = curr->next;
-                    curr->next = prev;
-                    prev = curr;
-                    curr = nex;
-                    i++;
-                }
-                head = prev;
-                while(prev->next!=NULL){
-                    prev = prev->next;
-                }
-                prev->next = nex;
-                return head;
-            }
-            //when left is other than 1st position
-            if(i==l-1){
-                lprev = curr;
-                ListNode* prev = NULL;
-                ListNode* nex;
-                curr = curr->next;
-                i++;
-                while(i<=r){
-                    nex = curr->next;
-                    curr->next = prev;
-                    prev = curr;
-                    curr = nex;
-                    i++;
-                }
-                lprev->next = prev;
-                while(prev->next!=NULL){
-                    prev = prev->next;
-                }
-                prev->next = nex;
-                break;
-            }
-            curr = curr->next;
-            i++;
+    //Most optimised way of solving
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode* prev = dummy;
+        
+        //to get the node just before the left positioned node
+        for(int i=0; i<left-1; i++){
+            prev = prev->next;
         }
-        return head;
+        
+        ListNode* curr = prev->next;
+        for(int i=0; i<right-left; i++){
+            //prev and curr are intact and only the links are interchanged
+            ListNode* nex = curr->next;
+            curr->next = nex->next;
+            nex->next = prev->next;
+            prev->next = nex;
+        }
+        return dummy->next;
     }
 };
