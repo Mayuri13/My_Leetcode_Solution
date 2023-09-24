@@ -1,56 +1,19 @@
 class Solution {
 public:
-    double t[101][101]; // declaring 2 d array, to store some already computed results
-    double solve(int poured, int row, int glass)
-    {
-        // if any of the condition fails
-        if(row < 0 || glass > row || glass < 0)
-        {
-            return 0.00;
-        }
-        
-        // if we reach at our target 
-        if(row == 0 && glass == 0)
-        {
-            return poured;
-        }
-        
-        // if result is already computed, then return from here
-        // this one line which we say to add
-        if(t[row][glass] > -1)
-        {
-            return t[row][glass];
-        }
-        
-        // how much comes from left part- first coordinate(i -1, j - 1) then keep 1 for themself and then divide by 2
-        double left = (solve(poured, row - 1, glass - 1) - 1) / 2;
-        
-        // if comes negative then, in reality zero comes
-        if(left < 0)
-        {
-            left = 0;
-        }
-        
-        // how much comes from right part- first coordinate(i - 1, j) then keep 1 for themself and then divide by 2
-        double right = (solve(poured, row - 1, glass) - 1) / 2;
-        
-        // if comes negative then, in reality zero comes
-        if(right < 0)
-        {
-            right = 0;
-        }
-        
-        // and add coming from left and right
-        double total = left + right;
-        
-        return t[row][glass] = total;// and finally return total
-        
-        
-    }
     double champagneTower(int poured, int query_row, int query_glass) {
-        memset(t, -1, sizeof(t));
-        
-        // solve funcion which return answer
-        return min(1.00, solve(poured, query_row, query_glass));
+        vector<double> currRow(1, poured);
+		
+        for(int i=0; i<=query_row; i++){ //we need to make the dp matrix only till query row. No need to do after that
+            vector<double> nextRow(i+2, 0); //If we are at row 0, row 1 will have 2 glasses. So next row will have currRow number + 2 number of glasses.
+            for(int j=0; j<=i; j++){ //each row will have currRow number + 1 number of glasses.
+                if(currRow[j]>=1){ //if the champagne from the current glass is being overflowed.
+                    nextRow[j] += (currRow[j]-1)/2.0; //fill the left glass with the overflowing champagne
+                    nextRow[j+1] += (currRow[j]-1)/2.0; //fill the right glass with the overflowing champagne
+                    currRow[j] = 1; //current glass will store only 1 cup of champagne
+                }
+            }
+            if(i!=query_row) currRow = nextRow; //change the currRow for the next iteration. But if we have already reached the query_row, then the next iteration will not even take place, so the currRow is the query_row itself. So don't change as we need the currRow only.
+        }
+        return currRow[query_glass];
     }
 };
