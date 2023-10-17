@@ -1,9 +1,9 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        int ans = 0, l = 0, n = s.size()-1;
+        int ans = 0, l = 0, n = s.size();
         set<char>st;
-        for(int i=0; i<=n; i++){
+        for(int i=0; i<n; i++){
             if(st.find(s[i])!=st.end()){
                 ans = max(ans,i-l);
                 while(l<i){
@@ -17,7 +17,7 @@ public:
                 st.insert(s[i]);
             }
         }
-        ans = max(ans,n-l+1);
+        ans = max(ans,n-l);
         return ans;
     }
 };
