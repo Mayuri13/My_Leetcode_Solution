@@ -11,79 +11,42 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-    ListNode *temp1=NULL;
-    int sum=0, c=0, x=0;
-    while (l1!=NULL && l2!=NULL)
-    {
-        sum=l1->val+l2->val+c;
-        if(sum>9){
-            c=sum/10;
-            x=sum%10;
+        ListNode* dummy = new ListNode(-1);
+        ListNode* curr = dummy;
+
+        int sum = 0, c = 0;
+        while(l1 != NULL && l2 != NULL){
+            sum = l1->val + l2->val + c;
+            c = sum/10;
+            sum %= 10;
+
+            curr->next = new ListNode(sum);
+            curr = curr->next;
+            l1 = l1->next;
+            l2 = l2->next;
         }
-        else{
-            c=0;
-            x=sum;
+
+        while(l1 != NULL){
+            sum = l1->val + c;
+            c = sum/10;
+            sum %= 10;
+
+            curr->next = new ListNode(sum);
+            curr = curr->next;
+            l1 = l1->next;
         }
-        
-        ListNode *temp2=new ListNode(x);
-        temp2->next=temp1;
-        temp1=temp2;
-        l1=l1->next;
-        l2=l2->next;
-    }
-        
-    while (l1!=NULL)
-    {
-        sum=l1->val+c;
-        if(sum>9){
-            c=sum/10;
-            x=sum%10;
+
+        while(l2 != NULL){
+            sum = l2->val + c;
+            c = sum/10;
+            sum %= 10;
+
+            curr->next = new ListNode(sum);
+            curr = curr->next;
+            l2 = l2->next;
         }
-        else{
-            c=0;
-            x=sum;
-        }
-        
-        ListNode *temp2=new ListNode(x);
-        temp2->next=temp1;
-        temp1=temp2;
-        l1=l1->next;
-    }
-    while (l2!=NULL)
-    {
-        sum=l2->val+c;
-        if(sum>9){
-            c=sum/10;
-            x=sum%10;
-        }
-        else{
-            c=0;
-            x=sum;
-        }
-        
-        ListNode *temp2=new ListNode(x);
-        temp2->next=temp1;
-        temp1=temp2;
-        l2=l2->next;
-    }
-    
-    if(c!=0){
-       
-        ListNode *temp2=new ListNode(c);
-        temp2->next=temp1;
-        temp1=temp2;
-    }
-        
-    ListNode *prev=NULL;
-    ListNode *curr=temp1;
-    while (curr!=NULL)
-    {
-        ListNode *next=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=next;
-    }
-    
-    return prev;
+
+        curr->next = (c > 0)? new ListNode(c) : NULL;
+        return dummy->next;
     }
 };
