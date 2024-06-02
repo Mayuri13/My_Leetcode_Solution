@@ -40,3 +40,12 @@
 |  |
 | ------- |
 | [0022-generate-parentheses](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0022-generate-parentheses) |
+| [0078-subsets](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0078-subsets) |
+# Array
+|  |
+| ------- |
+| [0078-subsets](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0078-subsets) |
+# Bit Manipulation
+|  |
+| ------- |
+| [0078-subsets](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0078-subsets) |
