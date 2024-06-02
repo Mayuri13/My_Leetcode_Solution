@@ -30,4 +30,13 @@
 # String
 |  |
 | ------- |
+| [0022-generate-parentheses](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0022-generate-parentheses) |
 | [0344-reverse-string](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0344-reverse-string) |
+# Dynamic Programming
+|  |
+| ------- |
+| [0022-generate-parentheses](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0022-generate-parentheses) |
+# Backtracking
+|  |
+| ------- |
+| [0022-generate-parentheses](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0022-generate-parentheses) |
