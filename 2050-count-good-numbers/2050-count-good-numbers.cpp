@@ -34,8 +34,8 @@ public:
         long long evenPow = n/2 + (n%2 != 0); 
         long long oddPow = n/2;
 
-        ans *= (long long) findPow(5, evenPow);
-        ans *= (long long) findPow(4, oddPow);
+        ans *= (long long) findPow(5, evenPow);   //Recursive function for calculating 5^evenPow (comb of even places)
+        ans *= (long long) findPow(4, oddPow);    //Recursive function for calculating 4^oddPow (comb of odd places)
         return ans % mod;
     }
 };
