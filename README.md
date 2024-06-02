@@ -21,10 +21,12 @@
 |  |
 | ------- |
 | [0002-add-two-numbers](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0002-add-two-numbers) |
+| [2050-count-good-numbers](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/2050-count-good-numbers) |
 # Recursion
 |  |
 | ------- |
 | [0002-add-two-numbers](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0002-add-two-numbers) |
+| [2050-count-good-numbers](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/2050-count-good-numbers) |
 # String
 |  |
 | ------- |
