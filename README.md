@@ -4,6 +4,7 @@
 # Hash Table
 |  |
 | ------- |
+| [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
 | [0142-linked-list-cycle-ii](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0142-linked-list-cycle-ii) |
 # Linked List
 |  |
@@ -40,12 +41,18 @@
 |  |
 | ------- |
 | [0022-generate-parentheses](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0022-generate-parentheses) |
+| [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
 | [0078-subsets](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0078-subsets) |
 # Array
 |  |
 | ------- |
+| [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
 | [0078-subsets](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0078-subsets) |
 # Bit Manipulation
 |  |
 | ------- |
 | [0078-subsets](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0078-subsets) |
+# Matrix
+|  |
+| ------- |
+| [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
