@@ -39,6 +39,7 @@
 |  |
 | ------- |
 | [0022-generate-parentheses](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0022-generate-parentheses) |
+| [0435-non-overlapping-intervals](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0435-non-overlapping-intervals) |
 # Backtracking
 |  |
 | ------- |
@@ -51,6 +52,7 @@
 | [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
 | [0057-insert-interval](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0057-insert-interval) |
 | [0078-subsets](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0078-subsets) |
+| [0435-non-overlapping-intervals](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0435-non-overlapping-intervals) |
 # Bit Manipulation
 |  |
 | ------- |
@@ -63,3 +65,8 @@
 |  |
 | ------- |
 | [0409-longest-palindrome](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0409-longest-palindrome) |
+| [0435-non-overlapping-intervals](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0435-non-overlapping-intervals) |
+# Sorting
+|  |
+| ------- |
+| [0435-non-overlapping-intervals](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0435-non-overlapping-intervals) |
