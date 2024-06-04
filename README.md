@@ -52,6 +52,7 @@
 | [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
 | [0057-insert-interval](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0057-insert-interval) |
 | [0078-subsets](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0078-subsets) |
+| [0215-kth-largest-element-in-an-array](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0215-kth-largest-element-in-an-array) |
 | [0435-non-overlapping-intervals](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0435-non-overlapping-intervals) |
 # Bit Manipulation
 |  |
@@ -69,4 +70,17 @@
 # Sorting
 |  |
 | ------- |
+| [0215-kth-largest-element-in-an-array](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0215-kth-largest-element-in-an-array) |
 | [0435-non-overlapping-intervals](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0435-non-overlapping-intervals) |
+# Divide and Conquer
+|  |
+| ------- |
+| [0215-kth-largest-element-in-an-array](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0215-kth-largest-element-in-an-array) |
+# Heap (Priority Queue)
+|  |
+| ------- |
+| [0215-kth-largest-element-in-an-array](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0215-kth-largest-element-in-an-array) |
+# Quickselect
+|  |
+| ------- |
+| [0215-kth-largest-element-in-an-array](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0215-kth-largest-element-in-an-array) |
