@@ -49,6 +49,7 @@
 |  |
 | ------- |
 | [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
+| [0057-insert-interval](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0057-insert-interval) |
 | [0078-subsets](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0078-subsets) |
 # Bit Manipulation
 |  |
