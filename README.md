@@ -6,6 +6,7 @@
 | ------- |
 | [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
 | [0142-linked-list-cycle-ii](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0142-linked-list-cycle-ii) |
+| [0409-longest-palindrome](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0409-longest-palindrome) |
 # Linked List
 |  |
 | ------- |
@@ -33,6 +34,7 @@
 | ------- |
 | [0022-generate-parentheses](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0022-generate-parentheses) |
 | [0344-reverse-string](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0344-reverse-string) |
+| [0409-longest-palindrome](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0409-longest-palindrome) |
 # Dynamic Programming
 |  |
 | ------- |
@@ -56,3 +58,7 @@
 |  |
 | ------- |
 | [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
+# Greedy
+|  |
+| ------- |
+| [0409-longest-palindrome](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0409-longest-palindrome) |
