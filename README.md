@@ -7,6 +7,7 @@
 | [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
 | [0142-linked-list-cycle-ii](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0142-linked-list-cycle-ii) |
 | [0409-longest-palindrome](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0409-longest-palindrome) |
+| [1044-find-common-characters](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/1044-find-common-characters) |
 # Linked List
 |  |
 | ------- |
@@ -35,6 +36,7 @@
 | [0022-generate-parentheses](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0022-generate-parentheses) |
 | [0344-reverse-string](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0344-reverse-string) |
 | [0409-longest-palindrome](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0409-longest-palindrome) |
+| [1044-find-common-characters](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/1044-find-common-characters) |
 # Dynamic Programming
 |  |
 | ------- |
@@ -54,6 +56,7 @@
 | [0078-subsets](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0078-subsets) |
 | [0215-kth-largest-element-in-an-array](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0215-kth-largest-element-in-an-array) |
 | [0435-non-overlapping-intervals](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0435-non-overlapping-intervals) |
+| [1044-find-common-characters](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/1044-find-common-characters) |
 # Bit Manipulation
 |  |
 | ------- |
