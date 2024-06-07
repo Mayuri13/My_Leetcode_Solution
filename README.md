@@ -65,6 +65,7 @@
 | [0876-hand-of-straights](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0876-hand-of-straights) |
 | [1044-find-common-characters](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/1044-find-common-characters) |
 | [1669-minimum-cost-to-cut-a-stick](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/1669-minimum-cost-to-cut-a-stick) |
+| [2038-nearest-exit-from-entrance-in-maze](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/2038-nearest-exit-from-entrance-in-maze) |
 # Bit Manipulation
 |  |
 | ------- |
@@ -73,6 +74,7 @@
 |  |
 | ------- |
 | [0037-sudoku-solver](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0037-sudoku-solver) |
+| [2038-nearest-exit-from-entrance-in-maze](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/2038-nearest-exit-from-entrance-in-maze) |
 # Greedy
 |  |
 | ------- |
@@ -103,3 +105,7 @@
 |  |
 | ------- |
 | [1320-remove-all-adjacent-duplicates-in-string-ii](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/1320-remove-all-adjacent-duplicates-in-string-ii) |
+# Breadth-First Search
+|  |
+| ------- |
+| [2038-nearest-exit-from-entrance-in-maze](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/2038-nearest-exit-from-entrance-in-maze) |
