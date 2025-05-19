@@ -123,4 +123,12 @@
 |  |
 | ------- |
 | [2800-minimum-string-length-after-removing-substrings](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/2800-minimum-string-length-after-removing-substrings) |
+## Array
+|  |
+| ------- |
+| [0518-coin-change-ii](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0518-coin-change-ii) |
+## Dynamic Programming
+|  |
+| ------- |
+| [0518-coin-change-ii](https://github.com/Mayuri13/My_Leetcode_Solution/tree/master/0518-coin-change-ii) |
 <!---LeetCode Topics End-->
